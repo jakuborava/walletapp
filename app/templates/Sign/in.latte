@@ -1,0 +1,45 @@
+{block content}
+<h1 n:block=title>Přihlásit se</h1>
+
+{form signInForm class =>'form-horizontal'}
+	<br>
+	 <div class="form-group">
+		{label username class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input username class=>'form-control'}
+		</div>
+	  </div>
+	  <div class="form-group">
+		{label password class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input password class=>'form-control'}
+		</div>
+	  </div>
+	  <div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+		  <div class="checkbox">
+			<label>
+			  {input remember}
+			</label>
+		  </div>
+		</div>
+	  </div>
+	  <div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+		  {input send, class=>'btn btn-primary'}
+		</div>
+	  </div>
+	  <div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+		  <a n:href="User:reactive">Zaslat aktivační kód</a><br />
+		  <a n:href="User:forgotPassword">Zapomenuté heslo</a>
+		</div>
+	  </div>
+{/form}
+
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Přihlásit se</li>
+{/block}

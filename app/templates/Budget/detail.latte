@@ -1,0 +1,31 @@
+{* Latte template *}
+{block content}
+<h2>{$budget->name}</h2>
+<div class="row-offcanvas col-lg-6">
+<table class="table table-bordered">
+	<tr><td>Limit</td><td>{$budget->how_much} Kč</td></tr>
+	<tr><td>Utraceno</td><td>{$spend} Kč</td></tr>
+	<tr><td><strong>+/-</strong></td><td><strong>{$budget->how_much-$spend} Kč</strong></td></tr>
+</table>
+<div class="progress">
+	{if $budget->how_much - $spend < 0}
+		{var over = (($spend / $budget->how_much)-1)*100|noescape|number}
+		<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+			Přečerpáno o {$over|number}%
+		</div>
+	{else}
+		{var avalaible = ($spend / $budget->how_much)*100|noescape|number}
+		<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {$avalaible|noescape|number}%;">
+			{$avalaible|number}% Vyčerpáno
+		</div>
+	{/if}
+</div>
+</div>
+</div>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li><a n:href="Budget:">Rozpočty</a></li>
+		<li class="active">{$budget->name}</li>
+{/block}

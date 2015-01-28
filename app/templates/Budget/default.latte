@@ -1,0 +1,33 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+	<a n:href="Budget:create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> &nbsp;Vytvořit rozpočet</a>
+	<br /><br />
+	<table class="table table-bordered table-hover table-striped table-responsive">
+		<tr><th>Název</th><th>Kategorie</th><th>Částka</th><th>Typ</th><th>Akce</th><tr>
+		{foreach $budgets as $budget}
+			<tr><td>{$budget->name}</td>
+				<td>{$budget->category->name}</td>
+				<td>{$budget->how_much}</td>
+				<td>
+				{if $budget->type == 'w'}
+					Týdenní
+				{elseif $budget->type == 'm'}
+					Měsíční
+				{elseif $budget->type == 'y'}
+					Roční
+				{/if}
+				</td>
+				<td>
+					<a n:href="Budget:detail $budget->id" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> &nbsp;Detail</a>&nbsp;
+					<a n:href="Budget:edit $budget->id" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Upravit</a>&nbsp;
+					<a n:href="Budget:delete $budget->id" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> &nbsp;Smazat</a>
+				</td>
+			</tr>
+		{/foreach}
+	</table>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Rozpočty</li>
+{/block}

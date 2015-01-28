@@ -1,0 +1,23 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+<a n:href="Category:create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> &nbsp;Vytvořit kategorii</a>
+<br /><br />
+<table class="table table-bordered table-hover table-striped table-responsive">
+	<tr><th>Název</th><th>Typ</th><th>Akce</th><tr>
+	{foreach $categories as $category}
+		<tr>
+			<td>{$category->name}</td>
+			<td>{if $category->type == e}Výdajová{elseif $category->type == i}Příjmová{/if}</td>
+			<td>
+				<a n:href="Category:edit $category->id" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Upravit</a>&nbsp;
+				<a n:href="Category:delete $category->id" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> &nbsp;Smazat</a>
+			</td>
+		</tr>
+	{/foreach}
+</table>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Kategorie</li>
+{/block}

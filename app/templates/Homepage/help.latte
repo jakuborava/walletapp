@@ -1,0 +1,94 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+{if $user->loggedIn}
+	<div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <ul class="nav nav-pills nav-stacked">
+			  <li class="active"><a href="#">Účet 1</a></li>
+            <li><a href="#">Účet 2</a></li>
+            <li><a href="#">Účet 3</a></li>
+            <li><a href="#">Účet 4</a></li>
+            <li><a href="#">Účet 5</a></li>
+            <li><a n:href="Transaction:create">Přidat transakci</a></li>
+            <li><a n:href="Category:create">Přidat kategorii</a></li>
+            <li><a n:href="Budget:create">Přidat rozpočet</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-left visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Vítejte v aplikaci MyWallet!</h1>
+            <p>Aplikace MyWallet umožňuje spravovat vaše finanční výdaje.</p>
+			<p><a class="btn btn-primary btn-lg btn-success" role="button">Dozvědět se více</a>
+			<a class="btn btn-primary btn-lg btn-default" role="button">Příště již nezobrazovat</a></p>
+          </div>
+          <div class="row">
+            <div class="col-6 col-sm-6 col-lg-4">
+              <div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="img">
+				<div class="caption">
+					<h3>Thumbnail label</h3>
+					<p>Detail o účtě</p>
+					<p><a href="#" class="btn btn-primary" role="button">Upravit</a> <a href="#" class="btn btn-danger" role="button">Smazat</a></p>
+				</div>
+			</div>	
+            </div><!--/span-->
+            <div class="col-6 col-sm-6 col-lg-4">
+              <div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="img">
+				<div class="caption">
+					<h3>Bankovní účet</h3>
+					<p>Detail o účtě</p>
+					<p><a href="#" class="btn btn-primary" role="button">Upravit</a> <a href="#" class="btn btn-danger" role="button">Smazat</a></p>
+				</div>
+			</div>	
+            </div><!--/span-->
+            <div class="col-6 col-sm-6 col-lg-4">
+              <div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="img">
+				<div class="caption">
+					<h3>Účet - Kajmany</h3>
+					<p>Detail o účtě</p>
+					<p><a href="#" class="btn btn-primary" role="button">Upravit</a> <a href="#" class="btn btn-danger" role="button">Smazat</a></p>
+				</div>
+			</div>	
+				<br />
+            </div><!--/span-->
+            <div class="col-6 col-sm-6 col-lg-4">
+              <div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="img">
+				<div class="caption">
+					<h3>Eura</h3>
+					<p>Detail o účtě</p>
+					<p><a href="#" class="btn btn-primary" role="button">Upravit</a> <a href="#" class="btn btn-danger" role="button">Smazat</a></p>
+				</div>
+			</div>	
+            </div>
+            <div class="col-6 col-sm-6 col-lg-4">
+              <div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="img">
+				<div class="caption">
+					<h3>Stavební spoření</h3>
+					<p>Detail o účtě</p>
+					<p><a href="#" class="btn btn-primary" role="button">Upravit</a> <a href="#" class="btn btn-danger" role="button">Smazat</a></p>
+				</div>
+			</div>	
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+	</div>
+{else}
+	
+{/if}
+
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Nápověda</li>
+{/block}

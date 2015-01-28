@@ -1,0 +1,65 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+{if $user->loggedIn}
+	<div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <ul class="nav nav-pills nav-stacked">
+			{foreach $accounts as $account}
+				<li class=""><a n:href="Account:detail $account->id">{$account->name}</a></li>
+			{/foreach}
+			<li><hr></li>
+            <li><a n:href="Transaction:create">Přidat transakci</a></li>
+            <li><a n:href="Category:create">Přidat kategorii</a></li>
+            <li><a n:href="Budget:create">Přidat rozpočet</a></li>
+			<li><a n:href="Account:create">Přidat účet</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-left visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+		  {if !$disableJumbotron}
+          <div class="jumbotron">
+            <h1>Vítejte v aplikaci MyWallet!</h1>
+            <p>Aplikace MyWallet umožňuje spravovat vaše finanční výdaje.</p>
+			<p><a class="btn btn-primary btn-lg btn-success" role="button" n:href="Homepage:about">Dozvědět se více</a>
+				<a class="btn btn-primary btn-lg btn-default" role="button" n:href="Homepage:disable">Příště již nezobrazovat</a></p>
+          </div>
+		  {/if}
+		  <div class="row">
+			  <strong>Celková suma: {$totalSum} Kč</strong>
+		  </div>
+		  
+		  <br> 
+          <div class="row">
+			  
+			{var $i = 0}
+			{foreach $accounts as $account}
+				
+				<div class="col-6 col-sm-6 col-lg-4">
+					<div class="panel panel-info">
+						<!--<img data-src="holder.js/300x300" alt="img">-->
+						<div class="panel-heading"><h3 class="panel-title"><a n:href="Account:detail $account->id">{$account->name}</a></h3></div>
+						<div class="panel-body">{$account->avalaibleMoney} {$account->currency->symbol}</div>
+						<div class="panel-footer"><a n:href="Account:edit $account->id" class="btn btn-primary" role="button">Upravit</a> <a n:href="Account:delete $account->id" class="btn btn-danger" role="button">Smazat</a></div>
+					</div>	
+				</div>
+				{var $i++}
+				
+				{if $i%3 == 0}
+				</div><br />
+					<div class="row">
+				{/if}
+			{/foreach}
+            </div>
+        </div>
+    </div>
+    <hr>
+{else}
+	
+{/if}
+	{/block}
+	
+	{block breadcrumbs}
+		<li class="active">Domů</li>
+	{/block}

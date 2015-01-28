@@ -1,0 +1,26 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+<h3>Uživatel {$user->identity->id}</h3>
+{if $us->firstname != '' && $us->surename != ''}
+	<p>Jméno a příjmení: {$us->firstname} {$us->surename}</p>
+{/if}
+	<table class="table table-bordered table-hover table-responsivee">
+		<tr>
+			<td><a n:href="Account:">Počet účtů</a></td><td>{$us->count_of_acc}</td>
+		</tr>
+		<tr>
+			<td><a n:href="Category:">Počet kategorií</a></td><td>{$us->count_of_cat}</td>
+		</tr>
+		<tr>
+			<td><a n:href="Budget:">Počet rozpočtů</a></td><td>{$us->count_of_bud}</td>
+		</tr>
+		<tr>
+			<td><a n:href="Transaction:">Počet transakcí</a></td><td>{$us->count_of_tra}</td>
+		</tr>
+	</table>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Můj účet</li>
+{/block}
