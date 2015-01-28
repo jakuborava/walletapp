@@ -1,0 +1,24 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+	<a n:href="Account:create" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> &nbsp;Vytvořit účet</a>
+	<br /><br />
+	<table class="table table-bordered table-hover table-striped table-responsive">
+		<tr><th>Název</th><th>Částka</th><th>Akce</th><tr>
+		{foreach $accounts as $account}
+			<tr>
+				<td>{$account->name}</td>
+				<td>{$account->avalaibleMoney} {$account->currency->symbol}</td>
+				<td>
+					<a n:href="Account:detail $account->id" class="btn btn-primary"><span class="glyphicon glyphicon-th-list"></span> &nbsp;Detail</a>&nbsp;
+					<a n:href="Account:edit $account->id" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Upravit</a>&nbsp;
+					<a n:href="Account:delete $account->id" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> &nbsp;Smazat</a>
+				</td>
+			</tr>
+		{/foreach}
+	</table>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Účty</li>
+{/block}

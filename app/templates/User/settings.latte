@@ -1,0 +1,41 @@
+{* This is the welcome page, you can delete it *}
+{block content}
+	<a class="btn btn-danger" n:href="User:delete">Smazat účet</a>
+	<br /><br />
+	<h4>Změnit heslo</h4>
+	{form changePassword class => 'form-inline'}
+		<div class="form-group">
+			{label password class=>'sr-only'/}
+			{input password class=>'form-control', placeholder => 'Heslo'}			
+		</div>
+		<div class="form-group">
+			{label passwordVerify class=>'sr-only'/}
+			{input passwordVerify class=>'form-control', placeholder => 'Heslo znova'}
+		</div>
+			{input edit, class=>'btn btn-primary'}
+	{/form}
+	<br />
+	<h4>Změnit e-mail</h4>
+	{form changeEmail class => 'form-inline'}
+		<div class="form-group">
+			{label email class=>'sr-only'/}
+			{input email class=>'form-control', placeholder => 'john.doe@example.com'}
+		</div>
+		{input edit, class=>'btn btn-primary'}		  
+	{/form}
+	<br />
+	<h4>Změnit výchozí měnu</h4>
+	{form defaultCurrency class => 'form-inline'}
+		<div class="form-group">
+			{label default_currency class => 'sr-only'/}
+			{input default_currency class=>'form-control'}
+		</div>
+		{input edit, class=>'btn btn-primary'}
+	{/form}
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li><a n:href="User:">Můj účet</a></li>
+		<li class="active">Nastavení</li>
+{/block}

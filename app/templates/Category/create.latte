@@ -1,0 +1,42 @@
+{* Latte template *}
+
+{block content}
+{form categoryForm class=> 'form-horizontal'}
+	<div class="form-group">
+		{label name class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input name class=>'form-control'}
+		</div>
+	</div>
+
+		<div class="form-group">
+		{label type class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input type class=>'form-control'}
+		</div>
+		</div>
+		
+	  <div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+		  {input send, class=>'btn btn-primary', data-loading-text => 'Vytvářím kategorii.', autocomplete => 'off'}
+		</div>
+	  </div>
+{/form}
+{/block}
+
+{block scripts}
+{include parent}
+<script>
+$(document).ready(function(){
+	$('#frm-categoryForm-send').on('click', function () {
+    $(this).button('loading');    
+	});
+});
+</script>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li><a n:href="Category:">Kategorie</a></li>
+		<li class="active">Vytvořit</li>
+{/block}

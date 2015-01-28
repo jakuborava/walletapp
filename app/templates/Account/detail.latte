@@ -1,0 +1,21 @@
+{* Latte template *}
+
+{block content}
+
+<h2>Detail účtu {$account->name}</h2>
+<br>
+<h3>Transakce:</h3>
+	<table class="table table-bordered table-hover table-striped table-responsive">
+		<tr><th>Kategorie</th><th>Částka</th><th>Datum a čas</th><th>Akce</th><tr>
+		{foreach $transactions as $transaction}
+			<tr><td>{$transaction->id_category}</td><td>{$transaction->ammount}</td><td>{$transaction->date_time|date:'d. m. Y'}&nbsp;&nbsp;1{$transaction->date_time|date:'H:i'}</td><td><a n:href="Transaction:edit $transaction->id" class="btn btn-default">Upravit</a>&nbsp;<a n:href="Transaction:delete $transaction->id" class="btn btn-danger">Smazat</a></td></tr>
+		{/foreach}
+	</table>
+	
+	{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li><a n:href="Account:">Účty</a></li>
+		<li class="active">{$account->name}</li>
+{/block}

@@ -1,0 +1,50 @@
+{* Latte template *}
+
+{block content}
+{form registerForm class => 'form-horizontal'}
+	<div class="form-group">
+		{label username class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+			{input username class=>'form-control'}
+		</div>
+	</div>
+
+	<div class="form-group">
+		{label password class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+			{input password class=>'form-control'}
+		</div>
+	</div>
+		
+	<div class="form-group">
+		{label firstname class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+			{input firstname class=>'form-control'}
+		</div>
+	</div>
+		
+	<div class="form-group">
+		{label surename class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+			{input surename class=>'form-control'}
+		</div>
+	</div>
+	
+	<div class="form-group">
+		{label email class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+			{input email class=>'form-control'}
+		</div>
+	</div>
+		
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+			{input register, class=>'btn btn-primary', data-loading-text => 'Vytvářím kategorii.', autocomplete => 'off'}
+		</div>
+	</div>
+{/form}
+{/block}
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li class="active">Registrovat</li>
+{/block}

@@ -1,0 +1,59 @@
+{* Latte template *}
+
+{block content}
+{form transactionForm class => 'form-horizontal'}
+	<div class="form-group">
+		{label ammount class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input ammount class=>'form-control'}
+		</div>
+	</div>
+	<div class="form-group">
+		{label date class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input date class=>'form-control'}
+		</div>
+	</div>
+	<div class="form-group">
+		{label description class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input description class=>'form-control'}
+		</div>
+	</div>
+	<div class="form-group">
+		{label id_account class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input id_account class=>'form-control'}
+		</div>
+	</div>
+	<div class="form-group">
+		{label id_category class=>'col-sm-1 control-label'/}
+		<div class="col-sm-3">
+		  {input id_category class=>'form-control'}
+		</div>
+	</div>
+
+	  <div class="form-group">
+		<div class="col-sm-offset-1 col-sm-10">
+		  {input send, class=>'btn btn-primary', data-loading-text => 'Přidávám transakci...', autocomplete => 'off'}
+		</div>
+	  </div>
+{/form}
+{/block}
+
+{block scripts}
+{include parent}
+<script>
+$(document).ready(function(){
+	$('#frm-transactionForm-send').on('click', function () {
+    $(this).button('loading');    
+	});
+});
+</script>
+{/block}
+
+{block breadcrumbs}
+		<li><a n:href="Homepage:">Domů</a></li>
+		<li><a n:href="Transaction:">Transakce</a></li>
+		<li class="active">Vytvořit</li>
+{/block}
