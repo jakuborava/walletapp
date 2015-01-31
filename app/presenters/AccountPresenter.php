@@ -26,6 +26,7 @@ class AccountPresenter extends BasePresenter
 	
 	public function actionDelete($id)
 	{
+		$this->database->table('transactions')->where('id_account',$id)->delete();
 		$this->database->table('Accounts')->get($id)->delete();
 		$this->redirect('Account:');
 	}
