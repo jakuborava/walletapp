@@ -64,10 +64,10 @@
 			<li {ifCurrent Homepage:default}class="active"{/ifCurrent}><a n:href="Homepage:default"><span class="glyphicon glyphicon-home"></span> &nbsp;Domů</a></li>
 			{if $user->loggedIn}
             
-			<li {ifCurrent Transaction:default}class="active"{/ifCurrent}><a n:href="Transaction:default">Transakce <span class="badge">{$countOfTra}</span></a></li>
-			<li {ifCurrent Category:default}class="active"{/ifCurrent}><a n:href="Category:default">Kategorie <span class="badge">{$countOfCat}</span></a></li>
-			<li {ifCurrent Budget:default}class="active"{/ifCurrent}><a n:href="Budget:default">Rozpočty <span class="badge">{$countOfBud}</span></a></li>
-			<li {ifCurrent Account:default}class="active"{/ifCurrent}><a n:href="Account:default">Účty <span class="badge">{$countOfAcc}</span></a></li>
+			<li {ifCurrent Transaction:default}class="active"{/ifCurrent}><a n:href="Transaction:default">Transakce <span class="badge">{$userStats->count_of_tra}</span></a></li>
+			<li {ifCurrent Category:default}class="active"{/ifCurrent}><a n:href="Category:default">Kategorie <span class="badge">{$userStats->count_of_cat}</span></a></li>
+			<li {ifCurrent Budget:default}class="active"{/ifCurrent}><a n:href="Budget:default">Rozpočty <span class="badge">{$userStats->count_of_bud}</span></a></li>
+			<li {ifCurrent Account:default}class="active"{/ifCurrent}><a n:href="Account:default">Účty <span class="badge">{$userStats->count_of_acc}</span></a></li>
 			{else}
 				
 				<li {ifCurrent Homepage:about}class="active"{/ifCurrent}><a n:href="Homepage:about">O programu</a></li>
