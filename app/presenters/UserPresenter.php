@@ -97,12 +97,14 @@ class UserPresenter extends BasePresenter
 	}
 	
 	public function actionDelete() {
-		$user = $this->user->getIdentity()->getId();
-		$this->database->table('transactions')->where('id_user',$this->user->getIdentity()->user_id)->delete();
+		$id = $this->user->getIdentity()->user_id;
+		//$user = $this->user->getIdentity()->getId();
+		/*$this->database->table('transactions')->where('id_user',$this->user->getIdentity()->user_id)->delete();
 		$this->database->table('budgets')->where('id_user',$this->user->getIdentity()->user_id)->delete();
 		$this->database->table('categories')->where('id_user',$this->user->getIdentity()->user_id)->delete();
 		$this->database->table('accounts')->where('id_user',$this->user->getIdentity()->user_id)->delete();
-		$this->database->table('users')->where('username',$user)->delete();
+		$this->database->table('users')->where('username',$user)->delete();*/
+		$this->database->query('CALL deleteUser('.$id.');');
 		$this->getUser()->logout();
 		$this->getSession()->destroy();
 		$this->redirect('Homepage:');
