@@ -21,6 +21,7 @@ class TransactionPresenter extends BasePresenter
 	public function actionDelete($id)
 	{
 		$this->database->table('Transactions')->get($id)->delete();
+		$this->user->getIdentity()->user_stats['tra'] = $this->user->getIdentity()->user_stats['tra']-1;
 		$this->redirect('Transaction:');
 	}
 	
@@ -91,6 +92,7 @@ class TransactionPresenter extends BasePresenter
 		} else {
 			$this->database->table('Transactions')->insert($values);
 			$this->flashMessage("Transakce byla úspěšně vytvořena.", 'success');
+			$this->user->getIdentity()->user_stats['tra'] = $this->user->getIdentity()->user_stats['tra']+1;
 			$this->redirect('Transaction:');
 		}
 	}

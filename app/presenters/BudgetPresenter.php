@@ -49,6 +49,7 @@ class BudgetPresenter extends BasePresenter
 	public function actionDelete($id)
 	{
 		$this->database->table('Budgets')->get($id)->delete();
+		$this->user->getIdentity()->user_stats['bud'] = $this->user->getIdentity()->user_stats['bud']-1;
 		$this->redirect('Budget:');
 	}
 	
@@ -109,6 +110,7 @@ class BudgetPresenter extends BasePresenter
 		} else {
 			$this->database->table('Budgets')->insert($values);
 			$this->flashMessage("Účet byl úspěšně vytvořen.", 'success');
+			$this->user->getIdentity()->user_stats['bud'] = $this->user->getIdentity()->user_stats['bud']+1;
 			$this->redirect('Budget:');
 		}
 	}

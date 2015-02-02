@@ -31,12 +31,13 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 													(SELECT COUNT(accounts.id) FROM accounts WHERE id_user = ".$this->user->getIdentity()->user_id.") as pocet_uctu
 													FROM categories
 													WHERE id_user = ".$this->user->getIdentity()->user_id)->fetch();
-			
-			$this->template->count_of_cat = $counts[0];
-			$this->template->count_of_bud = $counts[1];
-			$this->template->count_of_tra = $counts[2];
-			$this->template->count_of_acc = $counts[3];*/
-			$this->template->userStats = $this->database->table('users')->where('id',$this->user->getIdentity()->user_id)->fetch();
+			*/
+			$this->template->countOfCat = $this->getUser()->getIdentity()->user_stats['cat'];
+			$this->template->countOfBud = $this->getUser()->getIdentity()->user_stats['bud'];
+			$this->template->countOfTra = $this->getUser()->getIdentity()->user_stats['tra'];
+			$this->template->countOfAcc = $this->getUser()->getIdentity()->user_stats['acc'];
+			//$this->template->userStats = $this->getUser()->getIdentity()->user_stats;
+			//$this->template->userStats = $this->database->table('users')->where('id',$this->user->getIdentity()->user_id)->fetch();
 		}
 	}
 }

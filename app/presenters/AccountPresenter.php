@@ -28,6 +28,7 @@ class AccountPresenter extends BasePresenter
 	{
 		$this->database->table('transactions')->where('id_account',$id)->delete();
 		$this->database->table('Accounts')->get($id)->delete();
+		$this->user->getIdentity()->user_stats['acc'] = $this->user->getIdentity()->user_stats['acc']-1;
 		$this->redirect('Account:');
 	}
 	
@@ -85,6 +86,7 @@ class AccountPresenter extends BasePresenter
 		} else {
 			$this->database->table('Accounts')->insert($values);
 			$this->flashMessage("Účet byl úspěšně vytvořen.", 'success');
+			$this->user->getIdentity()->user_stats['acc'] = $this->user->getIdentity()->user_stats['acc']+1;
 			$this->redirect('Account:');
 		}
 	}
