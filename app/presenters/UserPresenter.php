@@ -67,21 +67,34 @@ class UserPresenter extends BasePresenter
 	{
 		$values = $form->getValues();
 		$values['password'] = sha1($values['password']);
-		$this->database->table('users')->insert($values);
-		$mail = new Message;
-		$code = sha1($values['username']);
-		$mail->setFrom('accounts@mywal.com')
-			->addTo($values['email'])
-			->setSubject('Aktivujte si svůj účet')
-			->setBody("Dobrý den, \n Děkujeme za Vaši registraci. \n"
-					. "Pro dokončení registrace klikněte na tento odkaz: "
-					//."http://mywallet.eu/user/activate?=".$code
-					. "http://localhost/MyWallet/www/user/activate?code=".$code
-					. ". Přejeme mnoho bezstarostných výdajů.\n\n Váš MyWallet tým.");
-		
-		$mailer = new SendmailMailer;
-		$mailer->send($mail);
-		$this->redirect('Sign:in');
+		$username = $this->database->table('users')->where('username',$values['username'])->count('*');
+		$email = $this->database->table('users')->where('email',$values['email'])->count('*');
+		if($username > 0)
+		{
+			$this->flashMessage('Uživatel již existuje', 'alert');
+		}
+		elseif ($email > 0) 
+		{
+			$this->flashMessage('Uživatel s tímto e-mailem již existuje', 'alert');
+		}
+		else
+		{
+			$this->database->table('users')->insert($values);
+			$mail = new Message;
+			$code = sha1($values['username']);
+			$mail->setFrom('accounts@mywal.com')
+				->addTo($values['email'])
+				->setSubject('Aktivujte si svůj účet')
+				->setBody("Dobrý den, \n Děkujeme za Vaši registraci. \n"
+						. "Pro dokončení registrace klikněte na tento odkaz: "
+						//."http://mywallet.eu/user/activate?=".$code
+						. "http://localhost/MyWallet/www/user/activate?code=".$code
+						. ". Přejeme mnoho bezstarostných výdajů.\n\n Váš MyWallet tým.");
+
+			$mailer = new SendmailMailer;
+			$mailer->send($mail);
+			$this->redirect('Sign:in');
+		}
 	}
 	
 	public function renderActivate()
