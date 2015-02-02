@@ -19,9 +19,10 @@ class CategoryPresenter extends BasePresenter
 	
 	public function actionDelete($id)
 	{
-		$this->database->table('budgets')->where('id_category',$id)->delete();
+		/*$this->database->table('budgets')->where('id_category',$id)->delete();
 		$this->database->table('transactions')->where('id_category',$id)->delete();
-		$this->database->table('Categories')->get($id)->delete();
+		$this->database->table('Categories')->get($id)->delete();*/
+		$this->database->query('CALL deleteCategory('.$id.');');
 		$this->user->getIdentity()->user_stats['cat'] = $this->user->getIdentity()->user_stats['cat']-1;
 		$this->redirect('Category:');
 	}
