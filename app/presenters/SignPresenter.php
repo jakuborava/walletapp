@@ -59,13 +59,15 @@ class SignPresenter extends BasePresenter
 		}
 
 		try {
-			$where_user = 'SELECT id, active FROM users WHERE username = "'.$values->username.'"';
+			$where_user = 'SELECT * FROM users WHERE username = "'.$values->username.'"';
 			$userdata = $this->database->query($where_user)->fetch();
 			
 			if($userdata->active == 1)
 			{
 				$this->getUser()->login($values->username, sha1($values->password));		
 				$this->getUser()->getIdentity()->user_id = $userdata->id;
+				$this->getUser()->getIdentity()->user_currency = $userdata->default_currency;
+				$this->getUser()->getIdentity()->user_stats = array('acc' => $userdata->count_of_acc, 'bud' => $userdata->count_of_bud, 'cat' => $userdata->count_of_cat,'tra' => $userdata->count_of_tra);
 				$this->flashMessage('Byl jste úspěšně přihlášen	.', 'success');
 				$this->restoreRequest($this->backlink);
 				$this->redirect('Homepage:default');

@@ -18,30 +18,26 @@ class UserPresenter extends BasePresenter
 		$this->database = $database;
 	}
 
-	public function renderDefault()
-	{
+	public function renderDefault()	{
 		$this->template->us = $this->database->table('users')->where('id',$this->getUser()->getIdentity()->user_id)->fetch();
 	}
 	
-	public function renderSettings()
-	{	
+	public function renderSettings() {	
+		$this['defaultCurrency']->setDefaults(array('default_currency' => $this->getUser()->getIdentity()->user_currency));
 	}
 	
-	public function actionEdit()
-	{
+	public function actionEdit() {
 		$user = $this->database->table('Users')->get($this->getUser()->getIdentity()->user_id);
 		$this['changeEmail']->setDefaults($user->toArray());
 	}
 	
-	public function actionPassword()
-	{
+	public function actionPassword() {
 		$user = $this->getHttpRequest()->getQuery('code');
 		$pole = array('code' => $user);
 		$this['changePassword1']->setDefaults($pole);
 	}
 	
-	protected function createComponentRegisterForm()
-	{
+	protected function createComponentRegisterForm() {
 		$form = new Nette\Application\UI\Form;
 		$form->addText('username', 'Uživatelské jméno:')
 			->setRequired('Prosím vyplňte uživatelské jméno.');
@@ -63,8 +59,7 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 
-	public function registerFormSucceeded($form)
-	{
+	public function registerFormSucceeded($form) {
 		$values = $form->getValues();
 		$values['password'] = sha1($values['password']);
 		$username = $this->database->table('users')->where('username',$values['username'])->count('*');
@@ -97,13 +92,11 @@ class UserPresenter extends BasePresenter
 		}
 	}
 	
-	public function renderActivate()
-	{
+	public function renderActivate() {
 		$this->database->query('UPDATE users SET active = 1 WHERE SHA1(username) = "'.$this->getHttpRequest()->getQuery('code').'"');
 	}
 	
-	public function actionDelete()
-	{
+	public function actionDelete() {
 		$user = $this->user->getIdentity()->getId();
 		$this->database->table('transactions')->where('id_user',$this->user->getIdentity()->user_id)->delete();
 		$this->database->table('budgets')->where('id_user',$this->user->getIdentity()->user_id)->delete();
@@ -115,8 +108,7 @@ class UserPresenter extends BasePresenter
 		$this->redirect('Homepage:');
 	}
 	
-	protected function createComponentChangeEmail()
-	{
+	protected function createComponentChangeEmail()	{
 		$form = new Nette\Application\UI\Form;
 		$form->addText('email', 'Email:')
 			->addRule(FORM::EMAIL, 'Zadejte prosím e-mail ve správném tvaru.')
@@ -128,15 +120,13 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function changeEmailFormSucceeded($form)
-	{
+	public function changeEmailFormSucceeded($form)	{
 		$values = $form->getValues();
 		$user = $this->user->getIdentity()->getId();
 		$this->database->table('users')->where('username',$user)->update($values);
 	}
 	
-	protected function createComponentChangePassword()
-	{
+	protected function createComponentChangePassword() {
 		$form = new Nette\Application\UI\Form;
 		$form->addPassword('password', 'Heslo:')
 			->setRequired('Prosím vyplňte heslo.');
@@ -151,8 +141,7 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function changePasswordFormSucceeded($form)
-	{
+	public function changePasswordFormSucceeded($form) {
 		$values = $form->getValues();
 		$user = $this->user->getIdentity()->getId();
 		$values['password'] = sha1($values['password']);
@@ -160,8 +149,7 @@ class UserPresenter extends BasePresenter
 		$this->database->table('users')->where('username',$user)->update($values);
 	}
 	
-	protected function createComponentChangePassword1()
-	{
+	protected function createComponentChangePassword1()	{
 		$form = new Nette\Application\UI\Form;
 		
 		$form->addHidden('code');
@@ -179,8 +167,7 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function changePassword1FormSucceeded($form)
-	{
+	public function changePassword1FormSucceeded($form)	{
 		$values = $form->getValues();
 		$pswd = $values["password"];
 		$code = $values["code"];
@@ -189,8 +176,7 @@ class UserPresenter extends BasePresenter
 		$this->redirect('Sign:in');
 	}
 	
-	protected function createComponentDefaultCurrency()
-	{
+	protected function createComponentDefaultCurrency()	{
 		$form = new Nette\Application\UI\Form;
 		$currencies = $this->database->table('currencies')->select('id, CONCAT(country," (", currency,")") AS mena')->fetchPairs('id','mena');
 		$form->addSelect('default_currency', 'Výchozí měna:')
@@ -204,15 +190,14 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function defaultCurrencyFormSucceeded($form)
-	{
+	public function defaultCurrencyFormSucceeded($form)	{
 		$values = $form->getValues();
 		$user = $this->user->getIdentity()->getId();
+		$this->user->getIdentity()->user_currency = $values['default_currency'];
 		$this->database->table('users')->where('username',$user)->update($values);
 	}
 	
-	protected function createComponentSendCode()
-	{
+	protected function createComponentSendCode() {
 		$form = new Nette\Application\UI\Form;
 		$form->addText('email', 'Email:')
 			->addRule(FORM::EMAIL, 'Zadejte prosím e-mail ve správném tvaru.')
@@ -224,8 +209,7 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function sendCodeFormSucceeded($form)
-	{
+	public function sendCodeFormSucceeded($form) {
 		$values = $form->getValues();
 		$user = $this->database->table('users')->where('email',$values['email'])->fetch();
 		$mail = new Message;
@@ -242,8 +226,7 @@ class UserPresenter extends BasePresenter
 		$mailer->send($mail);
 	}
 	
-	protected function createComponentSendPassword()
-	{
+	protected function createComponentSendPassword() {
 		$form = new Nette\Application\UI\Form;
 		$form->addText('email', 'Email:')
 			->addRule(FORM::EMAIL, 'Zadejte prosím e-mail ve správném tvaru.')
@@ -255,8 +238,7 @@ class UserPresenter extends BasePresenter
 		return $form;
 	}
 	
-	public function sendPasswordFormSucceeded($form)
-	{
+	public function sendPasswordFormSucceeded($form) {
 		$values = $form->getValues();
 		$user = $this->database->table('users')->where('email',$values['email'])->fetch();
 		$mail = new Message;
