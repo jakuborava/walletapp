@@ -41,18 +41,22 @@ class HomepagePresenter extends BasePresenter
 		}
 		if($this->user->loggedIn)
 		{
-			$this->template->accounts = $this->database->table('Accounts')->where('id_user',$this->getUser()->getIdentity()->user_id);
-			$this->template->totalSum = $this->getTotalSum();
+			$accounts = $this->database->table('Accounts')->where('id_user',$this->getUser()->getIdentity()->user_id)->fetchAll();
+			$this->template->accounts = $accounts;
+			$this->template->totalSum = $this->getTotalSum($accounts);
 		}		
 	}
 
-	public function getTotalSum()
+	public function getTotalSum($accounts)
 	{
 		$cashSum = 0;
-		$accounts = $this->database->table('Accounts')->where('id_user',$this->getUser()->getIdentity()->user_id)->where('inTotalSum',1);
+		//$accounts = $this->database->table('Accounts')->where('id_user',$this->getUser()->getIdentity()->user_id)->where('inTotalSum',1);
 		
 		foreach ($accounts as $cash) {
-			$cashSum += $this->countMoney($cash->avalaibleMoney,$cash->id_currency);
+			if($cash->inTotalSum == 1)
+			{
+				$cashSum += $this->countMoney($cash->avalaibleMoney,$cash->id_currency);
+			}
 		}
 		
 		return $cashSum;
