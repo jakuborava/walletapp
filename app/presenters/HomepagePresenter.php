@@ -50,12 +50,11 @@ class HomepagePresenter extends BasePresenter
 	public function getTotalSum($accounts)
 	{
 		$cashSum = 0;
-		//$accounts = $this->database->table('Accounts')->where('id_user',$this->getUser()->getIdentity()->user_id)->where('inTotalSum',1);
 		
-		foreach ($accounts as $cash) {
-			if($cash->inTotalSum == 1)
+		foreach ($accounts as $acc) {
+			if($acc->inTotalSum == 1)
 			{
-				$cashSum += $this->countMoney($cash->avalaibleMoney,$cash->id_currency);
+				$cashSum += $this->countMoney($acc->avalaibleMoney,$acc->id_currency);
 			}
 		}
 		
@@ -65,7 +64,7 @@ class HomepagePresenter extends BasePresenter
 	public function countMoney($cash, $currencyId)
 	{
 		$currency = $this->database->table('currencies')->get($currencyId);
-		$sum = $cash*$currency->course;
-		return round($sum);
+		$sum = ($cash*$currency->course)/$currency->count;
+		return $sum;
 	}
 }
