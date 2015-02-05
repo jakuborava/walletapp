@@ -1,30 +1,30 @@
-<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.37661200 1422360336";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:52:"C:\xampp\htdocs\MyWallet\app\templates\@layout.latte";i:2;i:1422360054;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000366a:2:{s:4:"time";s:21:"0.06251400 1423155265";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:52:"C:\xampp\htdocs\MyWallet\app\templates\@layout.latte";i:2;i:1422874343;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\MyWallet\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'n6d1q1j0ho')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '2aykv442ok')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbb3db932bc2_title')) { function _lbb3db932bc2_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb0d89a90bdb_title')) { function _lb0d89a90bdb_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>MyWallet<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb0f60e0bb3b_head')) { function _lb0f60e0bb3b_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lbd553c31eb3_head')) { function _lbd553c31eb3_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_l->blocks['scripts'][] = '_lb4a4bf7e104_scripts')) { function _lb4a4bf7e104_scripts($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['scripts'][] = '_lb6b07c1482c_scripts')) { function _lb6b07c1482c_scripts($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/jquery.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/netteForms.js"></script>
 		<script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/main.js"></script>

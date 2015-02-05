@@ -1,16 +1,16 @@
-<?php //netteCache[01]000375a:2:{s:4:"time";s:21:"0.18541200 1422352815";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:61:"C:\xampp\htdocs\MyWallet\app\templates\Homepage\default.latte";i:2;i:1422352479;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000375a:2:{s:4:"time";s:21:"0.99251400 1423155264";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:61:"C:\xampp\htdocs\MyWallet\app\templates\Homepage\default.latte";i:2;i:1423155211;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\MyWallet\app\templates\Homepage\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'w35vdtfvnh')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'zlgdrbxcal')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb7b9ef7b8d4_content')) { function _lb7b9ef7b8d4_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lbaa3b5e675b_content')) { function _lbaa3b5e675b_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;if ($user->loggedIn) { ?>
 	<div class="row row-offcanvas row-offcanvas-left">
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
@@ -83,7 +83,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb7b9ef7b8d4_content')) { func
 //
 // block breadcrumbs
 //
-if (!function_exists($_l->blocks['breadcrumbs'][] = '_lb638be4e8c0_breadcrumbs')) { function _lb638be4e8c0_breadcrumbs($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['breadcrumbs'][] = '_lb4ce5e62a01_breadcrumbs')) { function _lb4ce5e62a01_breadcrumbs($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>		<li class="active">Domů</li>
 <?php
 }}
