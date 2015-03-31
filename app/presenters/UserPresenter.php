@@ -43,7 +43,9 @@ class UserPresenter extends BasePresenter
 			->setRequired('Prosím vyplňte uživatelské jméno.');
 		
 		$form->addPassword('password', 'Heslo:')
-			->setRequired('Prosím vyplňte heslo.');
+			->setRequired('Prosím vyplňte heslo.')
+			->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků', 6)
+			->addRule(Form::PATTERN, 'Musí obsahovat číslici', '.*[0-9].*');
 
 		$form->addText('firstname', 'Jméno');
 		$form->addText('surename', 'Příjmení');
@@ -131,7 +133,9 @@ class UserPresenter extends BasePresenter
 	protected function createComponentChangePassword() {
 		$form = new Nette\Application\UI\Form;
 		$form->addPassword('password', 'Heslo:')
-			->setRequired('Prosím vyplňte heslo.');
+			->setRequired('Prosím vyplňte heslo.')
+			->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků', 6)
+			->addRule(Form::PATTERN, 'Musí obsahovat číslici', '.*[0-9].*');
 		
 		$form->addPassword('passwordVerify', 'Heslo znovu:')
 			->setRequired('Zadejte prosím heslo ještě jednou pro kontrolu')
@@ -157,7 +161,9 @@ class UserPresenter extends BasePresenter
 		$form->addHidden('code');
 		
 		$form->addPassword('password', 'Heslo:')
-			->setRequired('Prosím vyplňte heslo.');
+			->setRequired('Prosím vyplňte heslo.')
+			->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaků', 6)
+			->addRule(Form::PATTERN, 'Musí obsahovat číslici', '.*[0-9].*');
 		
 		$form->addPassword('passwordVerify', 'Heslo znovu:')
 			->setRequired('Zadejte prosím heslo ještě jednou pro kontrolu')

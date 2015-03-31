@@ -11,8 +11,6 @@ use Nette,
  */
 class TransactionPresenter extends BasePresenter
 {
-
-	
 	public function renderDefault()
 	{
 		$this->template->transactions = $this->database->table('Transactions')->where('id_user',$this->getUser()->getIdentity()->user_id);
