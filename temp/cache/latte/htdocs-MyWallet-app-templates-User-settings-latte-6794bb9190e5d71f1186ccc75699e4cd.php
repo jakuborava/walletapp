@@ -2,13 +2,13 @@
 // source: C:\xampp\htdocs\MyWallet\app/templates/User/settings.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('7348749609', 'html')
+list($_b, $_g, $_l) = $template->initialize('4598043411', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb177f982f3a_content')) { function _lb177f982f3a_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['content'][] = '_lbe93221593b_content')) { function _lbe93221593b_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>	<a class="btn btn-danger" href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("User:delete"), ENT_COMPAT) ?>
 ">Smazat účet</a>
 	<br><br>
@@ -20,7 +20,7 @@ if (!function_exists($_b->blocks['content'][] = '_lb177f982f3a_content')) { func
 
 			<?php echo $_form["password"]->getControl()->addAttributes(array('class'=>'form-control', 'placeholder' => 'Heslo')) ?>
 
-		</div>
+		</div>&nbsp;
 		<div class="form-group">
 			<?php if ($_label = $_form["passwordVerify"]->getLabel()) echo $_label->addAttributes(array('class'=>'sr-only'))  ?>
 
@@ -65,7 +65,7 @@ if (!function_exists($_b->blocks['content'][] = '_lb177f982f3a_content')) { func
 //
 // block breadcrumbs
 //
-if (!function_exists($_b->blocks['breadcrumbs'][] = '_lb8a59d6fe9d_breadcrumbs')) { function _lb8a59d6fe9d_breadcrumbs($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['breadcrumbs'][] = '_lbec6c48cd08_breadcrumbs')) { function _lbec6c48cd08_breadcrumbs($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>		<li><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("Homepage:"), ENT_COMPAT) ?>
 ">Domů</a></li>
 		<li><a href="<?php echo Latte\Runtime\Filters::escapeHtml($_control->link("User:"), ENT_COMPAT) ?>

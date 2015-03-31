@@ -2,30 +2,31 @@
 // source: C:\xampp\htdocs\MyWallet\app/templates/@layout.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('6538073757', 'html')
+list($_b, $_g, $_l) = $template->initialize('0911824434', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block title
 //
-if (!function_exists($_b->blocks['title'][] = '_lb1829fadaab_title')) { function _lb1829fadaab_title($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['title'][] = '_lbd5f429b260_title')) { function _lbd5f429b260_title($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>MyWallet<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lb04001e5195_head')) { function _lb04001e5195_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lb0c24ee196e_head')) { function _lb0c24ee196e_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb01583dfa21_scripts')) { function _lb01583dfa21_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['scripts'][] = '_lb1448915240_scripts')) { function _lb1448915240_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/netteForms.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/main.js"></script>
+		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/live-form-validation.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 		 <script src="https://raw.githubusercontent.com/jquery/jquery-ui/master/ui/i18n/datepicker-cs.js"></script>
