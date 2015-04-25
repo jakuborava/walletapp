@@ -2,32 +2,33 @@
 // source: C:\xampp\htdocs\MyWallet\app/templates/@layout.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('0911824434', 'html')
+list($_b, $_g, $_l) = $template->initialize('3137631068', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block title
 //
-if (!function_exists($_b->blocks['title'][] = '_lbd5f429b260_title')) { function _lbd5f429b260_title($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['title'][] = '_lbe7ba10f117_title')) { function _lbe7ba10f117_title($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>MyWallet<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lb0c24ee196e_head')) { function _lb0c24ee196e_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lbaa4f1f33b5_head')) { function _lbaa4f1f33b5_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb1448915240_scripts')) { function _lb1448915240_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-?>		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
+if (!function_exists($_b->blocks['scripts'][] = '_lb3c9164c12a_scripts')) { function _lb3c9164c12a_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+?>		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/netteForms.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/main.js"></script>
+		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/nette.ajax.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/live-form-validation.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 		 <script src="https://raw.githubusercontent.com/jquery/jquery-ui/master/ui/i18n/datepicker-cs.js"></script>
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/bootstrap.js"></script>
@@ -35,6 +36,10 @@ if (!function_exists($_b->blocks['scripts'][] = '_lb1448915240_scripts')) { func
 		<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/offcanvas.js"></script>
 		
 		 <script>
+$(function () {
+    $.nette.init();
+});			 
+			 
 $(function() {
 	$( "#datepicker" ).datepicker( $.datepicker.regional[ "cs" ] );
 });

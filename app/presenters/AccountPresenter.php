@@ -27,7 +27,6 @@ class AccountPresenter extends BasePresenter
 	public function actionDelete($id)
 	{
 		$this->database->query('CALL deleteAccount('.$id.');');
-		$this->user->getIdentity()->user_stats['acc'] = $this->user->getIdentity()->user_stats['acc']-1;
 		$this->redirect('Account:');
 	}
 	
@@ -85,7 +84,6 @@ class AccountPresenter extends BasePresenter
 		} else {
 			$this->database->table('Accounts')->insert($values);
 			$this->flashMessage("Účet byl úspěšně vytvořen.", 'success');
-			$this->user->getIdentity()->user_stats['acc'] = $this->user->getIdentity()->user_stats['acc']+1;
 			$this->redirect('Account:');
 		}
 	}

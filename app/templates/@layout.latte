@@ -110,11 +110,12 @@
     </div>
 
 	{block scripts}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="{$basePath}/js/jquery.js"></script>
 		<script src="{$basePath}/js/netteForms.js"></script>
 		<script src="{$basePath}/js/main.js"></script>
+		<script src="{$basePath}/js/nette.ajax.js"></script>
 		<script src="{$basePath}/js/live-form-validation.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		 <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 		 <script src="https://raw.githubusercontent.com/jquery/jquery-ui/master/ui/i18n/datepicker-cs.js"></script>
 		<script src="{$basePath}/js/bootstrap.js"></script>
@@ -122,6 +123,10 @@
 		<script src="{$basePath}/js/offcanvas.js"></script>
 		
 		 <script>
+$(function () {
+    $.nette.init();
+});			 
+			 
 $(function() {
 	$( "#datepicker" ).datepicker( $.datepicker.regional[ "cs" ] );
 });
