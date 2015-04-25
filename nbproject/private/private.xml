@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/MyWallet/app/templates/@layout.latte</file>
+            <file>file:/C:/xampp/htdocs/MyWallet/app/presenters/SignPresenter.php</file>
+            <file>file:/C:/xampp/htdocs/MyWallet/app/presenters/UserPresenter.php</file>
+            <file>file:/C:/xampp/htdocs/MyWallet/app/templates/Budget/detail.latte</file>
+            <file>file:/C:/xampp/htdocs/MyWallet/app/presenters/BudgetPresenter.php</file>
+        </group>
     </open-files>
 </project-private>

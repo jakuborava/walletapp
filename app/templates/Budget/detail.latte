@@ -1,6 +1,6 @@
 {* Latte template *}
 {block content}
-<h2>{$budget->name}</h2>
+{*<h2>{$budget->name}</h2>{control monthForm}
 <div class="row-offcanvas col-lg-6">
 <table class="table table-bordered">
 	<tr><td>Limit</td><td>{$budget->how_much} Kč</td></tr>
@@ -22,6 +22,15 @@
 </div>
 </div>
 </div>
+*}
+{snippet wholeList}
+<ul n:snippet="itemsContainer">
+    {foreach $list as $key => $item}
+    <li n:snippet="item-$key">{$item} <a class="ajax" n:href="update! $key">update</a></li>
+    {/foreach}
+</ul>
+{/snippet}
+<a class="ajax" n:href="add!">Add</a>
 {/block}
 
 {block breadcrumbs}
